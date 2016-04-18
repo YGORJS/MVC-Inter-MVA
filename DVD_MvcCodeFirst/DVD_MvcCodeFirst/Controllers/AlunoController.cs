@@ -10,13 +10,13 @@ using DVD_MvcCodeFirst.Models;
 
 namespace DVD_MvcCodeFirst.Controllers
 {
-   
+   [RoutePrefix("Aluno")]
     public class AlunoController : Controller
     {
         private BancoContexto db = new BancoContexto();
 
         // GET: Aluno
-        [Route("Aluno/Listagem")]
+        [Route("Listagem")]
         public ActionResult Index()
         {
             var alunos = db.Alunos.Include(a => a.Professor);
@@ -40,7 +40,7 @@ namespace DVD_MvcCodeFirst.Controllers
         }
 
         // GET: Aluno/Create
-        [Route("Aluno/Novo")]
+        [Route("Novo")]
         public ActionResult Create()
         {
             ViewBag.IDProfessor = new SelectList(db.Professores, "IDProfessor", "Nome");
@@ -52,6 +52,7 @@ namespace DVD_MvcCodeFirst.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Novo")]
        
         public ActionResult Create([Bind(Include = "IDAluno,IDProfessor,NomeAluno,Email,Ano,Aprovado,Inscricao")] Aluno aluno)
         {

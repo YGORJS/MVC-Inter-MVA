@@ -10,11 +10,13 @@ using DVD_MvcCodeFirst.Models;
 
 namespace DVD_MvcCodeFirst.Controllers
 {
+    [RoutePrefix("Topico")]
     public class TopicoController : Controller
     {
         private BancoContexto db = new BancoContexto();
 
         // GET: Topico
+        [Route("Listagem")]
         public ActionResult Index()
         {
             var topicos = db.Topicos.Include(t => t.Professor);
@@ -22,6 +24,7 @@ namespace DVD_MvcCodeFirst.Controllers
         }
 
         // GET: Topico/Details/5
+        [Route("Detalhes/{id}")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +40,7 @@ namespace DVD_MvcCodeFirst.Controllers
         }
 
         // GET: Topico/Create
+        [Route("Novo")]
         public ActionResult Create()
         {
             ViewBag.IDProfessor = new SelectList(db.Professores, "IDProfessor", "Nome");
@@ -48,6 +52,7 @@ namespace DVD_MvcCodeFirst.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Novo")]
         public ActionResult Create([Bind(Include = "IDTopico,IDProfessor,Descricao")] Topico topico)
         {
             if (ModelState.IsValid)
@@ -62,6 +67,7 @@ namespace DVD_MvcCodeFirst.Controllers
         }
 
         // GET: Topico/Edit/5
+        [Route("Edicao/{id}")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -82,6 +88,7 @@ namespace DVD_MvcCodeFirst.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Edicao/{id}")]
         public ActionResult Edit([Bind(Include = "IDTopico,IDProfessor,Descricao")] Topico topico)
         {
             if (ModelState.IsValid)
@@ -95,6 +102,7 @@ namespace DVD_MvcCodeFirst.Controllers
         }
 
         // GET: Topico/Delete/5
+        [Route("Excluir/{id}")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -112,6 +120,7 @@ namespace DVD_MvcCodeFirst.Controllers
         // POST: Topico/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Route("Excluir/{id}")]
         public ActionResult DeleteConfirmed(int id)
         {
             Topico topico = db.Topicos.Find(id);

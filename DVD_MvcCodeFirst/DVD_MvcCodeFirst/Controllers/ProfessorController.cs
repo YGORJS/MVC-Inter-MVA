@@ -10,17 +10,20 @@ using DVD_MvcCodeFirst.Models;
 
 namespace DVD_MvcCodeFirst.Controllers
 {
+    [RoutePrefix("Professor")]
     public class ProfessorController : Controller
     {
         private BancoContexto db = new BancoContexto();
 
         // GET: Professor
+        [Route("Listagem")]
         public ActionResult Index()
         {
             return View(db.Professores.ToList());
         }
 
         // GET: Professor/Details/5
+        [Route("Detalhes/{id}")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -40,6 +43,7 @@ namespace DVD_MvcCodeFirst.Controllers
         }
 
         // GET: Professor/Create
+        [Route("Novo")]
         public ActionResult Create()
         {
             return View();
@@ -50,6 +54,7 @@ namespace DVD_MvcCodeFirst.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Novo")]
         public ActionResult Create([Bind(Include = "IDProfessor,Nome,Telefone,Salario,TwitterBlog,Materia,Disponivel,Admissao")] Professor professor)
         {
             if (ModelState.IsValid)
@@ -63,6 +68,7 @@ namespace DVD_MvcCodeFirst.Controllers
         }
 
         // GET: Professor/Edit/5
+        [Route("Edicao/{id}")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -82,6 +88,7 @@ namespace DVD_MvcCodeFirst.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Edicao/{id}")]
         public ActionResult Edit([Bind(Include = "IDProfessor,Nome,Telefone,Salario,TwitterBlog,Materia,Disponivel,Admissao")] Professor professor)
         {
             if (ModelState.IsValid)
@@ -94,6 +101,7 @@ namespace DVD_MvcCodeFirst.Controllers
         }
 
         // GET: Professor/Delete/5
+        [Route("Excluir/{id}")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -111,6 +119,7 @@ namespace DVD_MvcCodeFirst.Controllers
         // POST: Professor/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Route("Excluir/{id}")]
         public ActionResult DeleteConfirmed(int id)
         {
             Professor professor = db.Professores.Find(id);
