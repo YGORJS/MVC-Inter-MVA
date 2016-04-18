@@ -27,7 +27,11 @@ namespace DVD_MvcCodeFirst.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Professor professor = db.Professores.Find(id);
+            Professor professor = db.Professores
+                .Include("Alunos")
+                .Include("Topicos")
+                .Single(p => p.IDProfessor == id);
+
             if (professor == null)
             {
                 return HttpNotFound();
