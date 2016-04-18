@@ -15,12 +15,15 @@ namespace DVD_MvcCodeFirst
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-
-            //Database.SetInitializer<BancoContexto>(new InicializarBanco());
+            //inicialização de dados no banco
+            //Database.SetInitializer(new InicializarBanco());
 
         }
     }

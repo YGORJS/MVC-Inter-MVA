@@ -1,18 +1,19 @@
 ﻿@model IEnumerable<DVD_MvcCodeFirst.Models.Aluno>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Listagem de Alunos";
 }
 
-<h2>Index</h2>
+<h2>Alunos Cadastrados</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Novo Aluno", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Professor.Nome)
+          
         </th>
         <th>
             @Html.DisplayNameFor(model => model.NomeAluno)
@@ -53,9 +54,9 @@
             @Html.DisplayFor(modelItem => item.Inscricao)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IDAluno }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IDAluno }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IDAluno })
+            @Html.ActionLink("Editar", "Edit", new { id=item.IDAluno }) |
+            @Html.ActionLink("Detalhar", "Details", new { id=item.IDAluno }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.IDAluno })
         </td>
     </tr>
 }

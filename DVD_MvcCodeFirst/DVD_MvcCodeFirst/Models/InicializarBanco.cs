@@ -10,8 +10,8 @@ namespace DVD_MvcCodeFirst.Models
         protected override void Seed(BancoContexto context)
         {
 
+            
             /*
-
             //criar alugns dados no banco
             new List<Professor>
             {

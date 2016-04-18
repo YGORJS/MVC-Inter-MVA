@@ -18,8 +18,8 @@ namespace DVD_MvcCodeFirst.Controllers
         // GET: Aluno
         [Route("Listagem")]
         public ActionResult Index()
-        {
-            var alunos = db.Alunos.Include(a => a.Professor);
+        { 
+            var alunos = db.Alunos.Include(a => a.Professor);           
             return View(alunos.ToList());
         }
 

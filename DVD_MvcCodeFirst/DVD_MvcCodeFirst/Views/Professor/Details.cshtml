@@ -1,10 +1,10 @@
 ﻿@model DVD_MvcCodeFirst.Models.Professor
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes do Professor";
 }
 
-<h2>Details</h2>
+<h2>Detalhes</h2>
 
 <div>
     <h4>Professor</h4>
@@ -69,6 +69,26 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IDProfessor }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IDProfessor }) |
+    @Html.ActionLink("Professores Cadastrados", "Index")
 </p>
+
+<fieldset>
+    <legend>Alunos</legend>
+    <ul class="list-group">
+                @foreach (var aluno in Model.Alunos)
+                {
+                    <li class="list-group-item">@aluno.NomeAluno <span class="badge">@aluno.Inscricao</span> </li>
+                }
+    </ul>
+</fieldset>
+
+<fieldset>
+    <legend>Tópicos</legend>
+    <ul class="list-group">
+        @foreach (var topico in Model.Topicos)
+        {
+            <li class="list-group-item">@topico.Descricao</li>
+        }
+    </ul>
+</fieldset>
