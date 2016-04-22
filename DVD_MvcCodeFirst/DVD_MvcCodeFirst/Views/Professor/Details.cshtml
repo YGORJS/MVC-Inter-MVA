@@ -74,7 +74,7 @@
 </p>
 
 <fieldset>
-    <legend>Alunos</legend>
+    <legend>Alunos : @Model.Alunos.Count</legend>
     <ul class="list-group">
                 @foreach (var aluno in Model.Alunos)
                 {
@@ -84,7 +84,7 @@
 </fieldset>
 
 <fieldset>
-    <legend>Tópicos</legend>
+    <legend>Tópicos: @Model.Topicos.Count</legend>
     <ul class="list-group">
         @foreach (var topico in Model.Topicos)
         {

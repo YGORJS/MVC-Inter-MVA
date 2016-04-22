@@ -38,7 +38,8 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Nome)
+           
+            @Html.ActionLink(Convert.ToString(@Html.DisplayFor(modelItem => item.Nome)), "Details", new { id = item.IDProfessor })
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Telefone)
@@ -60,7 +61,7 @@
         </td>
         <td>
             @Html.ActionLink("Editar", "Edit", new { id=item.IDProfessor }) |
-            @Html.ActionLink("Detalhar", "Details", new { id=item.IDProfessor }) |
+            @*@Html.ActionLink("Detalhar", "Details", new { id=item.IDProfessor }) |*@
             @Html.ActionLink("Excluir", "Delete", new { id=item.IDProfessor })
         </td>
     </tr>
@@ -69,9 +70,9 @@
 </table>
 
 <hr />
-<ul>
+@*<ul>
     @foreach (var item in Model)
     {
         <li>@Html.ActionLink(item.Nome, "Details", new { id = item.IDProfessor})</li>
     }
-</ul>
+</ul>*@
