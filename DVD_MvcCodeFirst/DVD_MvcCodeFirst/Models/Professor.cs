@@ -43,6 +43,8 @@ namespace DVD_MvcCodeFirst.Models
 
         public List<Topico> Topicos { get; set; }
 
+        public List<Disciplina> Disciplinas { get; set; }
+
 
 
     }
